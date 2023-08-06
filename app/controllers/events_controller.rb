@@ -1,5 +1,7 @@
 class EventsController < ApplicationController
   def index
+    @events = Event.all
+    @count = Event.count
   end
 
   def new
