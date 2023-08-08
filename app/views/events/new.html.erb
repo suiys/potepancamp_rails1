@@ -1,0 +1,35 @@
+<div class="container">
+  <section class="form-wrapper">
+    <h2>予定の新規作成</h2>
+    <div class="form-container">
+      <%= form_with model: @event do |f| %>
+        <div class="title">
+          <%= f.label :title, "タイトル", class: "required-column" %>
+          <%= f.text_field :title, {placeholder: "タイトル", class: "input-form"} %>
+        </div>
+        <div class="startdate">
+          <%= f.label :startdate, "開始日", class: "required-column" %>
+          <%= f.date_field :startdate, class: "input-form" %>
+        </div>
+        <div class="enddate">
+          <%= f.label :enddate, "終了日", class: "required-column" %>
+          <%= f.date_field :enddate, class: "input-form" %>
+        </div>
+        <div class="allday">
+          <%= f.check_box :allday, {class: "input-checkbox"}, "1", "0" %>
+          <%= f.label :allday, "終日の予定の場合はチェックを入れてください" %>
+        </div>
+        <div class="memo">
+          <%= f.label :memo, "スケジュールメモ" %>
+          <%= f.text_area :memo, {placeholder: "メモを入力する", class: "input-form"} %>
+        </div>
+        <div class="form-buttons">
+          <%= link_to events_path do %>
+            <button class="btn cancel-btn">キャンセル</button>
+          <% end %>
+          <%= f.submit "保存", class: "btn" %>
+        </div>
+      <% end%>
+    </div>
+  </section>
+</div>
