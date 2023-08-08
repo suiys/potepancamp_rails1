@@ -9,7 +9,7 @@ class EventsController < ApplicationController
   end
 
   def create
-    @event = Event.new(params.require(:event).permit(:titile, :startdate, :enddate, :allday, :memo))
+    @event = Event.new(params.require(:event).permit(:title, :startdate, :enddate, :allday, :memo))
     if @event.save
       flash[:notice] = "予定を追加しました"
       redirect_to events_path
