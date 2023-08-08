@@ -32,7 +32,13 @@
             <td><%= event.title %></td>
             <td><%= event.startdate.strftime("%Y/%m/%d") %></td>
             <td><%= event.enddate.strftime("%Y/%m/%d") %></td>
-            <td><%= event.allday %></td>
+            <td>
+              <% if event.allday == "1" %>
+                ◯
+              <% else %>
+                &nbsp;
+              <% end %>
+            </td>
             <td><%= event.updated_at %></td>
             <td><%= link_to "詳細", event_path(event) %></td>
             <td><%= link_to "編集", edit_event_path(event) %></td>
