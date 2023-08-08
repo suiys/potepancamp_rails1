@@ -39,7 +39,7 @@
                 &nbsp;
               <% end %>
             </td>
-            <td><%= event.updated_at %></td>
+            <td><%= event.updated_at.to_s(:datetime_jp) %></td>
             <td><%= link_to "詳細", event_path(event) %></td>
             <td><%= link_to "編集", edit_event_path(event) %></td>
             <td><%= link_to "削除", event_path(event), method: :delete, data: {confirm: "この予定を削除してよろしいですか？この操作は取り消せません"} %></td>
@@ -50,6 +50,6 @@
   </div>
   <div class="overview">
     <p>予定合計 <span><%= @count %></span> 件</p>
-    <p>本日の日付 <%= Date.today %></p>
+    <p>本日の日付 <%= Time.zone.today.strftime("%Y/%m/%d") %></p>
   </div>
 </div>
