@@ -1,0 +1,41 @@
+<div class="container">
+  <section class="form-wrapper">
+    <%= link_to events_path, class: "back-to-index" do %>
+      <i class="fa-solid fa-rotate-left"></i> 一覧に戻る
+    <% end %>
+    <div class="index">
+      <h2><%= @event.title %></h2>
+      <%= link_to edit_event_path(@event) do %>
+        <button class="btn"><i class="fa-solid fa-pen-to-square"></i> 編集</button>
+      <% end %>
+    </div>
+    <div class="schedule-detail">
+      <table>
+        <tbody>
+          <tr>
+            <th>開始日</th>
+            <td><%= @event.startdate.strftime("%Y/%m/%d") %></td>
+          </tr>
+          <tr>
+            <th>終了日</th>
+            <td><%= @event.enddate.strftime("%Y/%m/%d") %></td>
+          </tr>
+          <tr>
+            <th>終日</th>
+            <td>
+              <% if @event.allday == "1" %>
+                ◯
+              <% else %>
+                &nbsp;
+              <% end %>
+            </td>
+          </tr>
+          <tr>
+            <th>スケジュールメモ</th>
+            <td><%= @event.memo %></td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </section>
+</div>

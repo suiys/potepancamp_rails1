@@ -34,6 +34,7 @@ h2 {
 
 a {
   text-decoration: none;
+  color: #2a83a2;
 }
 
 .header-container {
@@ -88,22 +89,29 @@ a {
   font-weight: 500;
 }
 
-.fa-calendar-plus {
+.fa-calendar-plus, .fa-rotate-left, .fa-pen-to-square {
   margin-right: 6px;
 }
 
-.schedule-list {
+.schedule-list, .schedule-detail {
   background-color: #fff;
   box-shadow: 2px 3px 2px rgba(192, 198, 201, 0.3);
   overflow-x: auto;
 }
 
 table {
+  width: 100%;
   line-height: 2;
+  border-collapse: collapse;
 }
 
 th, td {
   padding: 10px 20px;
+  border-bottom: 1px solid rgba(192, 198, 201, 0.3) ;
+}
+
+th {
+  text-align: left;
 }
 
 .overview {
@@ -216,6 +224,24 @@ label {
   background-color: #fff;
   color: #333;
   margin-right: 0.5rem;
+}
+
+.back-to-index {
+  display: inline-block;
+  margin-bottom: 1rem;
+}
+
+.schedule-detail {
+  padding: 18px;
+}
+
+.schedule-detail > table {
+  border: 1px solid rgba(192, 198, 201, 0.3) ;
+}
+
+.schedule-detail th {
+  background-color: rgba(8, 103, 118, 0.1);
+  width: 25%;
 }
 
 // タブレット用表示
