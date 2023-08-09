@@ -27,10 +27,19 @@ class EventsController < ApplicationController
   end
 
   def update
-    
+    @event = Event.find(params[:id])
+    if @event.update(params.require(:event).permit(:title, :startdate, :enddate, :allday, :memo))
+      flash[:notice] = "予定を更新しました"
+      redirect_to events_path
+    else
+      render "edit"
+    end
   end
 
   def destroy
-    
+    @event = Event.find(params[:id])
+    @event.destroy
+    flash[:notice] = "予定を削除しました"
+    redirect_to events_path
   end
 end
