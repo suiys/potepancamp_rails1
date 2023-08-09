@@ -14,6 +14,7 @@ class EventsController < ApplicationController
       flash[:notice] = "予定を追加しました"
       redirect_to events_path
     else
+      flash[:notice] = "予定の作成に失敗しました"
       render "new"
     end
   end
@@ -32,6 +33,7 @@ class EventsController < ApplicationController
       flash[:notice] = "予定を更新しました"
       redirect_to events_path
     else
+      flash[:notice] = "予定の更新に失敗しました"
       render "edit"
     end
   end

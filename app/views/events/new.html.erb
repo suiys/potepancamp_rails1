@@ -1,4 +1,7 @@
 <div class="container">
+  <% if flash[:notice] %>
+    <%= render "shared/notice" %>
+  <% end %>
   <section class="form-wrapper">
     <h2>予定の新規作成</h2>
     <div class="form-container">
