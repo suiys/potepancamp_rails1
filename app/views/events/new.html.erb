@@ -1,0 +1,58 @@
+<div class="container">
+  <% if flash[:notice] %>
+    <%= render "shared/notice" %>
+  <% end %>
+  <section class="form-wrapper">
+    <h2>予定の新規作成</h2>
+    <div class="form-container">
+      <%= form_with model: @event do |f| %>
+        <div class="title">
+          <%= f.label :title, "タイトル", class: "required-column" %>
+          <%= f.text_field :title, {placeholder: "タイトル", class: "input-form"} %>
+          <% if @event.errors.include?(:title) %>
+            <% @event.errors.full_messages_for(:title).each do |message|%>
+              <p class="validation-error-message"><%= message %></p>
+            <% end %>
+          <% end %>
+        </div>
+        <div class="startdate">
+          <%= f.label :startdate, "開始日", class: "required-column" %>
+          <%= f.date_field :startdate, class: "input-form" %>
+          <% if @event.errors.include?(:startdate) %>
+            <% @event.errors.full_messages_for(:startdate).each do |message|%>
+              <p class="validation-error-message"><%= message %></p>
+            <% end %>
+          <% end %>
+        </div>
+        <div class="enddate">
+          <%= f.label :enddate, "終了日", class: "required-column" %>
+          <%= f.date_field :enddate, class: "input-form" %>
+          <% if @event.errors.include?(:enddate) %>
+            <% @event.errors.full_messages_for(:enddate).each do |message|%>
+              <p class="validation-error-message"><%= message %></p>
+            <% end %>
+          <% end %>
+        </div>
+        <div class="allday">
+          <%= f.check_box :allday, {class: "input-checkbox"}, "1", "0" %>
+          <%= f.label :allday, "終日の予定の場合はチェックを入れてください" %>
+        </div>
+        <div class="memo">
+          <%= f.label :memo, "スケジュールメモ" %>
+          <%= f.text_area :memo, {placeholder: "メモを入力する", class: "input-form"} %>
+          <% if @event.errors.include?(:memo) %>
+            <% @event.errors.full_messages_for(:memo).each do |message|%>
+              <p class="validation-error-message"><%= message %></p>
+            <% end %>
+          <% end %>
+        </div>
+        <div class="form-buttons">
+          <%= link_to events_path do %>
+            <button class="btn cancel-btn">キャンセル</button>
+          <% end %>
+          <%= f.submit "保存", class: "btn" %>
+        </div>
+      <% end%>
+    </div>
+  </section>
+</div>
