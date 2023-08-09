@@ -108,6 +108,8 @@ table {
 th, td {
   padding: 10px 20px;
   border-bottom: 1px solid rgba(192, 198, 201, 0.3) ;
+  white-space: nowrap;
+  text-overflow: ellipsis;
 }
 
 th {
